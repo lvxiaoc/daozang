@@ -1,0 +1,129 @@
+/* Basic Reset */
+body, h1, h2, h3, ul, p {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 280px 1fr 240px; /* Left-sidebar, Main-content, Right-sidebar */
+    grid-template-areas: "sidebar content outline";
+    height: 100vh;
+}
+
+/* Shared sidebar styles */
+.sidebar, .outline-sidebar {
+    background-color: #fff;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Left Sidebar (Scripture List) */
+.sidebar {
+    grid-area: sidebar;
+    border-right: 1px solid #ddd;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.sidebar h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #337ab7;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar nav li a:hover {
+    background-color: #eef4f9;
+    color: #23527c;
+}
+
+/* Right Sidebar (Chapter Outline) */
+.outline-sidebar {
+    grid-area: outline;
+    border-left: 1px solid #ddd;
+    display: none; /* Hidden by default */
+}
+
+.container.has-outline .outline-sidebar {
+    display: block; /* Shown when container has the class */
+}
+
+.outline-sidebar h3 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.outline-sidebar ul {
+    list-style: none;
+}
+
+.outline-sidebar li a {
+    display: block;
+    padding: 8px 10px;
+    text-decoration: none;
+    color: #555;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.outline-sidebar li a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Content Area */
+.content {
+    grid-area: content;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.content h1 {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+/* Scripture Content Styling */
+.scripture-content .chapter {
+    margin-bottom: 40px;
+}
+
+.scripture-content .chapter h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.scripture-content .chapter-text {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 1.1em;
+    line-height: 1.8;
+    font-family: "KaiTi", "STKaiti", "华文楷体", serif;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}

@@ -4,7 +4,7 @@ from flask import render_template, url_for
 from app import app, get_scriptures, parse_scripture
 
 # Configuration
-BUILD_DIR = 'build'
+BUILD_DIR = 'docs'
 SCRIPTURES_DIR = 'scriptures'
 
 def main():
