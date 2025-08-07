@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ title }} - 道藏阅读
+{% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <div class="scripture-content">
+        {% for chapter in parsed_content %}
+            <div class="chapter" id="{{ chapter.anchor }}">
+                <h2>{{ chapter.title }}</h2>
+                <div class="chapter-text">
+                    <pre>{{ chapter.content }}</pre>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block outline %}
+    {% if parsed_content and parsed_content|length > 1 %}
+        <h3>本章大纲</h3>
+        <ul>
+            {% for chapter in parsed_content %}
+                <li><a href="#{{ chapter.anchor }}">{{ chapter.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
