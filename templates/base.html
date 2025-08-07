@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}道藏阅读{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="container {% if show_outline_sidebar %}has-outline{% endif %}">
         <aside class="sidebar">
-            <h2><a href="{{ url_for('index') }}" style="text-decoration: none; color: inherit;">经文列表</a></h2>
+            <h2><a href="/" style="text-decoration: none; color: inherit;">经文列表</a></h2>
             <nav>
                 <ul>
                     {% for s in scriptures %}
-                        <li><a href="{{ url_for('scripture', filename=s.filename) }}">{{ s.title }}</a></li>
+                        <li><a href="/scripture/{{ s.filename }}/">{{ s.title }}</a></li>
                     {% endfor %}
                 </ul>
             </nav>
